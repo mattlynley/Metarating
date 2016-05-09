@@ -1,0 +1,38 @@
+<head>
+	{% if venue_object.redirect %}
+		<script language="JavaScript">
+			setTimeout('document.hidden.submit()',1);
+		</script>
+	{% endif %}
+	<script>
+		console.log("{{ venue_object.lowercase_venue }}")
+		console.log("{{ venue_object.serialized_venue}}")
+	</script>
+	<meta name="viewport" content="width=device-width">
+</head>
+<body>
+{% if venue_object.venue_list %}
+	Couldn't find that venue. Try one of the ones below:
+	<form action="{{ url_for('list') }}" method=post>
+		{% for item in venue_object.venue_list %}
+			<input type=submit value="{{ item }}" name='venue'><br/>
+		{% endfor %}
+		<input type=hidden value="{{ venue_object.neighborhood }}" name="neighborhood">
+		<input type=hidden value="{{ venue_object.city }}" name="city">
+		<input type=hidden value="{{ venue_object.latitude }}" name="latitude">
+		<input type=hidden value="{{ venue_object.longitude }}" name="longitude">
+	</form>
+	<a href="{{ url_for('home') }}">Or try searching again.</a>
+{% endif %}
+<form name ="hidden" action="{{ url_for('results') }}" method=post>
+	<input type=hidden value="{{ venue_object.foursquare_rating }}" name="foursquare_rating">
+	<input type=hidden value="{{ venue_object.data['venue_name'] }}" name="foursquare_name">
+	<input type=hidden value="{{ venue_object.google_rating }}" name="google_rating">
+	<input type=hidden value="{{ venue_object.google_photo }}" name="google_photo">
+	<input type=hidden value="{{ venue_object.yelp_stars }}" name="yelp_stars">
+	<input type=hidden value="{{ venue_object.yelp_review_count }}" name="yelp_review_count">
+	<input type=hidden value="{{ venue_object.yelp_rating }}" name="yelp_rating">
+	<input type=hidden value="{{ venue_object.weighted_rating }}" name="weighted_score">
+	<input type=hidden value="{{ venue_object.background_color }}" name="weighted_color">
+</form>
+</body>

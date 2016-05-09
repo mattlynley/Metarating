@@ -1,0 +1,41 @@
+$def with (venue_object)
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+::root {
+    var-bg-photo: url({{ venue_object.google_photo }});
+};
+.imgBox  { width:300px; height:100px; background-image: var(bg-photo); }
+.imgText { text-align:left; margin:0; padding:25px 0 0 0; color:white; }
+</style>
+        <title>Score Results</title>
+</head>
+<body>
+    $if venue_object:
+        <div class="imgBox">
+
+            <p class="imgText"> 
+
+                Foursquare rating: $venue_object.foursquare_rating
+                <br/>
+                Google rating: $venue_object.google_rating
+                <br/>
+                Yelp rating:<img src=$venue_object.yelp_stars alt="Yelp star photo goes here.">($venue_object.yelp_rating stars)
+                <br/>
+                CityGrid rating:$venue_object.citygrid_rating
+                <br/>
+                $venue_object.facebook_likes
+                <br/>
+                $venue_object.facebook_talking_about
+
+            </p>
+
+        </div>
+
+    $else:
+
+        You need to input the correct information.
+        <p><a href="/">Return to the front page.</a></p>
+</body>
+</html>

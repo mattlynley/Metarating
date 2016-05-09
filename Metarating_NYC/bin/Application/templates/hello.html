@@ -1,0 +1,31 @@
+<!doctype html>
+<title>Metarating</title>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/main.css") }}">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+  </script>
+  <script type="text/javascript" src="{{ url_for('static', filename='scripts/hello.js') }}">
+  </script>
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<div id="homeimage">
+    <div align="center">
+        <form action="{{ url_for('list') }}" method=post>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <p class="hometext">find all ratings for a venue</p>
+          <input type="text" value="enter a venue name" name="venue" onblur="if (this.value == '') {this.value = 'enter a venue name';}" onfocus="if (this.value == 'enter a venue name') {this.value = '';}" size="40"/>
+          <br/><br/>
+          <div class="panel">
+            &nbsp;<input type="text" value="enter a neighborhood" name="neighborhood" onblur="if (this.value == '') {this.value = 'enter a neighborhood';}" onfocus="if (this.value == 'enter a neighborhood') {this.value = '';}" size="25">
+            <br/><br/>
+            <input type="text" value="enter a city" name="city" onblur="if (this.value == '') {this.value = 'enter a city';}" onfocus="if (this.value == 'enter a city') {this.value = '';}" size="25">
+          </div>
+          <p class="slide"><a href="#" class="pull-me">
+          </p></a></br>
+          <input type=submit>
+        </form>
+        </div>
+    </div>
+</div>
+</body>

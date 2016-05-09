@@ -1,0 +1,29 @@
+<title>Metarating</title>
+<head>
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/main.css") }}">
+     <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<div class="textBox">
+  <div style="background-image: url({{ venue_object['google_photo'] }}); margin: -3px 0 0 -9px; height: 265px; width: 400px; border: 1px solid black;">
+    <div class="letterbox">
+    <h2><div align="center">{{ venue_object['foursquare_name'] }}</div></h2>
+    <h3>
+      <div align="center">
+        <div style="background-color: {{ venue_object['background_color'] }}; color:white">Rating: {{ venue_object['weighted_rating'] }}
+        </div>
+      </div>
+    </h3>
+    <br/><div class="ratingstext">&nbsp;Foursquare rating: {{ venue_object['foursquare_rating'] }} / 10
+    <br/>
+    &nbsp;Google rating: {{ venue_object['google_rating'] }} / 5
+    <br/>
+    &nbsp;Yelp rating:<img src={{ venue_object['yelp_stars'] }} alt="Yelp star photo goes here.">({{ venue_object['yelp_rating'] }} / 5 ) with {{ venue_object['yelp_review_count'] }} reviews.
+    <br/>
+    &nbsp;CityGrid rating: {{ venue_object['citygrid_rating'] }} / 10
+    </div>
+    </div>
+  </div>
+</div>
+<a href="{{ url_for('home') }}">Make another search</a>
+</body>
