@@ -8,8 +8,8 @@ application = Flask(__name__)
 
 ## Use Twilio to catch bugs
 
-twilio_client = TwilioRestClient(script_apis.twilio_account_sid, 
-                                  script_apis.twilio_auth_token)
+## twilio_client = TwilioRestClient(script_apis.twilio_account_sid, 
+##                                  script_apis.twilio_auth_token)
 
 def error_message(error, formdata):
 
@@ -20,9 +20,9 @@ def error_message(error, formdata):
                   + formdata['latitude'] + "; Lon: " 
                   + formdata['longitude'])
 
-    message = twilio_client.sms.messages.create(body=str(text_error),
-                                         to=script_apis.twilionumberto,
-                                         from_=script_apis.twilionumberfrom)
+##    message = twilio_client.sms.messages.create(body=str(text_error),
+##                                         to=script_apis.twilionumberto,
+##                                         from_=script_apis.twilionumberfrom)
 
 @application.route("/", methods=['GET', 'POST'])
 def home(venue_object=None):
