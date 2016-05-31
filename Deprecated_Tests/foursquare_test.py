@@ -1,8 +1,8 @@
 import foursquare
 
-foursquare_client_id = 'APIKEYGOESHERE'
+foursquare_client_id = 'GINF1JS3KJQXGXZUKMDAQS42DWH1AY0R2XCMHBD23GKK5JZE'
 
-foursquare_client_secret = 'APIKEYGOESHERE'
+foursquare_client_secret = 'PLICU3RXKGJSOQOJZSRFHQRZYADZMEXWMKTJ1LMFQFR0MBQC'
 
 client = foursquare.Foursquare(client_id = foursquare_client_id, 
 						client_secret= foursquare_client_secret)
